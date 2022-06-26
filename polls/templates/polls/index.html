@@ -1,0 +1,22 @@
+<h1>Index Page</h1>
+
+
+{% if latest_question_list %}
+
+
+
+        <ul>
+        {% for question in latest_question_list %}
+       
+        <!-- for não funciona   -->
+        <!---li><a href="/polls/{{question.id}}/"> {{
+                question.question_text}}</a></li--->
+        <li>
+                <a href="{% url 'polls:vote' question.id %}">{{ question.question_text}}</a>        
+        </li>        
+        {% endfor %}
+        </ul>
+{%  else %}
+    
+    <p>No polls are avaible.</p>
+{% endif %}
